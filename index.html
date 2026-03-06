@@ -6,35 +6,62 @@
     <title>Ejercicios de Álgebra Lineal - Unidad 2</title>
     <style>
         :root { --accent: #ff9900; --bg: #0b0b0b; --card: #1a1a1a; }
-        body { background: var(--bg); color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; transition: background 0.5s; }
-        
-        /* Navegación Camuflada */
+        body { background: var(--bg); color: white; font-family: sans-serif; margin: 0; }
         nav { padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; background: #000; border-bottom: 2px solid #333; position: sticky; top: 0; z-index: 1000; }
         .logo { color: #555; font-weight: bold; font-size: 1.2rem; }
-        
-        .search-box { background: #222; border: 1px solid #444; color: white; padding: 10px 20px; border-radius: 5px; width: 200px; outline: none; }
-        .search-box:focus { border-color: var(--accent); }
-
         .container { padding: 20px 5%; }
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 20px; }
-
-        .anime-card { background: var(--card); border-radius: 8px; overflow: hidden; position: relative; transition: transform 0.3s; cursor: pointer; border: 1px solid #222; }
-        .anime-card:hover { transform: translateY(-10px); border-color: var(--accent); }
-        .anime-card img { width: 100%; height: 240px; object-fit: cover; }
-        .info { padding: 10px; font-size: 0.85rem; text-align: center; font-weight: 500; }
-        
-        .score { position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.8); color: #ffcc00; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; }
-
-        /* Estilo para el Modo Pánico */
-        .panic-mode { background: white !important; color: black !important; padding: 50px; font-family: serif; height: 100vh; }
+        .anime-card { background: var(--card); border-radius: 12px; overflow: hidden; border: 1px solid #222; text-align: center; }
+        .anime-card img { width: 100%; height: 250px; object-fit: cover; }
+        .info { padding: 10px; font-weight: bold; font-size: 0.9rem; }
+        .panic-mode { background: white !important; color: black !important; padding: 50px; height: 100vh; }
     </style>
 </head>
 <body>
 
 <nav>
     <div class="logo" id="nav-logo">MATH-RESOURCE-V4</div>
-    <input type="text" id="userInput" class="search-box" placeholder="Buscar recurso..." onkeyup="buscarAnime()">
+    <div style="color:#444; font-size: 0.7rem;">Modo Seguro Activado</div>
 </nav>
 
 <div class="container" id="main-content">
-    <h2 id="section-title" style="color: #
+    <h2 id="section-title" style="color: #888; font-size: 1rem;">Material de Estudio Sugerido</h2>
+    <div class="grid">
+        <div class="anime-card">
+            <img src="https://cdn.myanimelist.net/images/anime/1286/99889.jpg">
+            <div class="info">Demon Slayer</div>
+        </div>
+        <div class="anime-card">
+            <img src="https://cdn.myanimelist.net/images/anime/1171/109222.jpg">
+            <div class="info">Jujutsu Kaisen</div>
+        </div>
+        <div class="anime-card">
+            <img src="https://cdn.myanimelist.net/images/anime/10/47347.jpg">
+            <div class="info">Attack on Titan</div>
+        </div>
+        <div class="anime-card">
+            <img src="https://cdn.myanimelist.net/images/anime/13/17405.jpg">
+            <div class="info">Naruto Shippuden</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // CAMUFLAJE DE PESTAÑA
+    document.addEventListener('visibilitychange', function() {
+        document.title = document.hidden ? "Calculadora Geogebra" : "Ejercicios de Álgebra Lineal";
+    });
+
+    // MODO PÁNICO: PRESIONA LA TECLA 'Q'
+    document.addEventListener('keydown', function(e) {
+        if (e.key.toLowerCase() === "q") {
+            document.body.classList.add('panic-mode');
+            document.getElementById('nav-logo').innerText = "WIKIPEDIA - MATEMÁTICAS";
+            document.getElementById('main-content').innerHTML = `<h1>Cálculo Multivariable</h1><p>Estudio de las derivadas parciales y sus aplicaciones en la física...</p>`;
+            document.title = "Tarea de Matemáticas";
+        }
+    });
+</script>
+
+</body>
+</html>
